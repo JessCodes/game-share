@@ -1,7 +1,9 @@
 #Deletes all
 User.delete_all
 Game.delete_all
-
+Library.delete_all
+Mechanic.delete_all
+GameMechanic.delete_all
 #Adds sample users
 users = User.create([{username: "Fridis", email: "frida@frida.com", password: "Frida", picture: "
 https://media.licdn.com/media/AAEAAQAAAAAAAAiUAAAAJDFhMTA4ZTA2LTA4MjktNDU1NC1hYWE3LWE0OTNlOTg0YzkwMQ.jpg" }, {username: "Kattis", email: "kat@kat.com", password: "Kat", picture: "https://media.licdn.com/media/AAEAAQAAAAAAAAfrAAAAJDQ4YjI5YTUxLTgzNTctNDBjOC04NWJhLWExMjhjMjU0Mzk5Yg.jpg"}, {username: "Jenis", email: "jen@jen.com", password: "Jen", picture: "
@@ -18,3 +20,6 @@ users.each do |u|
 end
 
 mechanics = Mechanic.create([{name: "Rock-Paper-Scissors"}, {name: "Campaign / Battle Card Driven"}, {name: "Co-operative Play"}, {name: "Dice Rolling"}, {name: "Grid Movement"}, {name: "Tile Placement"}, {name: "Time Track"}, {name: "Trading"}, {name: "Trick-taking"}, {name: "Voting"}])
+games.each do |g|
+  game_mechanics = GameMechanic.create([{game_id: g.id ,mechanic_id: mechanics.sample.id }])
+end
