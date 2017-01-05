@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     if login(params[:email], params[:password])
       redirect_back_or_to(root_path, notice: 'Logged in successfully.')
     else
-      flash[:notice] = "Login failed."
+      flash[:notice] = "Your username or password didn't match"
       redirect_to login_path
     end
   end
