@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20170105224941) do
   enable_extension "plpgsql"
 
   create_table "game_mechanics", force: :cascade do |t|
-    t.string   "game_id"
-    t.string   "mechanic_id"
+    t.integer  "game_id"
+    t.integer  "mechanic_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 20170105224941) do
   create_table "games", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "picture",    null: false
-    t.string   "creator_id"
+    t.integer  "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "libraries", force: :cascade do |t|
-    t.string   "user_id"
-    t.string   "game_id"
+    t.integer  "user_id"
+    t.integer  "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
