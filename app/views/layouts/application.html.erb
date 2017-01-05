@@ -7,6 +7,12 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cyborg/bootstrap.min.css" rel="stylesheet" integrity="sha384-D9XILkoivXN+bcvB2kSOowkIvIcBbNdoDQvfBNsxYAIieZbx8/SI4NeUvrRGCpDi" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <div id="home-link">
+      <%= link_to 'Gamesta Paradise', root_path %>
+    </div>
+    <div id="user-links">
+      <%= link_to 'Register', new_user_path %>
+    </div>
   </head>
 
   <body>
