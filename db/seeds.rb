@@ -14,5 +14,7 @@ games= Game.create([{name: "Monopoly", picture: "https://images-na.ssl-images-am
 
 #Adds some games to users library
 users.each do |u|
-  libraries = Library.create([{game_id: games.sample.id, user_id: u.id}, {game_id: games.sample.id, user_id: u.id}])  
+  libraries = Library.create([{game_id: games.sample.id, user_id: u.id}, {game_id: games.sample.id, user_id: u.id}])
 end
+
+mechanics = Mechanic.create([{name: "Rock-Paper-Scissors"}, {name: "Campaign / Battle Card Driven"}, {name: "Co-operative Play"}, {name: "Dice Rolling"}, {name: "Grid Movement"}, {name: "Tile Placement"}, {name: "Time Track"}, {name: "Trading"}, {name: "Trick-taking"}, {name: "Voting"}])
