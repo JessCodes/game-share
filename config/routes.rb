@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
     resources :sessions, only: [ :new, :create, :destroy ]
 
+    resources :games do
+      resources :comments, only: [:new, :create, :destroy]
+    end
+
     get 'login' => 'sessions#new'
     get 'logout' => 'sessions#destroy'
 end
