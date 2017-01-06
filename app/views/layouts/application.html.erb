@@ -34,6 +34,7 @@
           </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
+          <li><%= link_to 'Add Game', new_game_path %></li>
           <li><%= link_to "#{current_user.username}", user_path(current_user) %></li>
           <li><%= link_to 'Logout', logout_path %></li>
         <% else %>
