@@ -2,51 +2,11 @@
 <h3>Because games were meant to be played with friends</h3>
 
 <div class="container">
-  <% @games.each_slice(3) do |games| %>
-    <div class="row">
+  <div class="row">
+    <% @games.each do |game| %>
       <div class="col-sm-4">
         <%= render :partial => "games/game", :collection => @games, :as => :game %>
       </div>
-    </div>
     <% end %>
-  <div class="row">
-    <div class="col-sm-4">.col-sm-4</div>
-    <div class="col-sm-4">.col-sm-4</div>
-    <div class="col-sm-4">.col-sm-4</div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4">.col-sm-4</div>
-    <div class="col-sm-4">.col-sm-4</div>
-    <div class="col-sm-4">.col-sm-4</div>
-  </div>
-  <div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  </div>
-  <div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  </div>
-  <div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  </div>
-  <div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  </div>
-  <div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  </div>
-  <div class="row">
-  <div class="col-sm-4">keep empty</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">keep empty</div>
   </div>
 </div>
