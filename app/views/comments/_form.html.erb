@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+    <%= form_for [ @game, @comment ] do |f| %>
+      <% if comment.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:
+        </h2>
+        <ul>
+          <% comment.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <input class="form-control" id="focusedInput" type="text" name="comment[title]" placeholder="Title">
+    </div>
+    <div class="form-group">
+      <input class="form-control" id="focusedInput" type="text" name="comment[body]" placeholder="enter comment here">
+    </div>
+
+    <div class="field">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    </div>
+
+    <div class="field">
+    <%= f.hidden_field :game_id, :value => @game.id.to_i %>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+</div>
+</div>

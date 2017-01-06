@@ -1,11 +1,12 @@
 class GamesController < ApplicationController
 
   def index
+    super
     @games = Game.all
   end
 
   def new
-    @mechanics = Mechanic.all
+    super
     @game = Game.new
   end
 
@@ -24,19 +25,25 @@ class GamesController < ApplicationController
   end
 
   def edit
+    super
     @game = Game.find(params[:id])
     @mechanics = Mechanic.all
   end
 
   def show
+    super
     @game = Game.find(params[:id])
+    @comments = @game.comments
+    
+    @comment = Comment.new
+    @comment.game_id = @game.id
   end
 
   def update
     @game = Game.find(params[:id])
 
     if @game.update(game_params)
-      flash[:notice] = "Updated Game`"
+      flash[:notice] = "Updated Game"
       redirect_to game_path(@game)
     else
       flash[:notice] = "Something went wrong!"

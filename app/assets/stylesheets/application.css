@@ -18,27 +18,6 @@ h1 {
   text-align: center;
 }
 
-form {
- display: table-cell;
- text-align: center;
- vertical-align: middle;
- }
-
  body {
    padding-top: 10px;
-   text-align: center;
  }
-
-#home-link {
-  float: left;
-  margin-left: 15px;
-}
-
-#user-links {
-  float: right;
-  margin-right: 15px;
-}
-
-input {
-  margin-bottom: 5px;
-}

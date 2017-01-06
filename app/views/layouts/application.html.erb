@@ -8,22 +8,51 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cyborg/bootstrap.min.css" rel="stylesheet" integrity="sha384-D9XILkoivXN+bcvB2kSOowkIvIcBbNdoDQvfBNsxYAIieZbx8/SI4NeUvrRGCpDi" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <div id="home-link">
-      <%= link_to 'Gamesta Paradise', root_path %>
-    </div>
-    <div id="user-links">
-      <% if logged_in? %>
-        <%= link_to "#{current_user.username}", user_path(current_user) %> | <%= link_to 'Logout', logout_path %>
-      <% else %>
-        <%= link_to 'Register', new_user_path %> | <%= link_to 'Login', login_path %>
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to 'Gamesta Paradise', root_path, class: "navbar-brand" %>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Filter by Mechanics<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <% @mechanics.each do |mech| %>
+                  <li><a href="#"><%= link_to mech.name, games_path %></a></li>
+                <% end %>
+              </ul>
+            </li>
+          </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+          <li><%= link_to "#{current_user.username}", user_path(current_user) %></li>
+          <li><%= link_to 'Logout', logout_path %></li>
+        <% else %>
+          <li><%= link_to 'Register', new_user_path %></li>
+          <li><%= link_to 'Login', login_path %></li>
+      </ul>
       <% end %>
     </div>
-  </head>
+    </div>
+  </nav>
+</head>
 
   <body>
-    <p id="flash">
-      <%= flash.notice %>
-    </p>
+    <% if flash.notice %>
+    <div class="alert alert-dismissible alert-danger">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong><%= flash.notice %></strong>
+    </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
