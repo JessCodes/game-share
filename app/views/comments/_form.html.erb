@@ -1,33 +1,39 @@
 <%= form_for [ @game, @comment ] do |f| %>
   <% if comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
-      <ul>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:
+    </h2>
+    <ul>
       <% comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li>
+        <%= message %>
+      </li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.text_field :title, placeholder: 'title' %>
+    </ul>
   </div>
+<% end %>
 
-  <div class="field">
-    <%= f.text_area :body, placeholder: 'comment here' %>
-  </div>
+<div class="form-group">
+  <input class="form-control" id="focusedInput" type="text" name="title" placeholder="Title">
+</div>
+<div class="form-group">
+  <input class="form-control" id="focusedInput" type="text" name="body" placeholder="enter comment here">
+</div>
 
-  <div class="field">
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-  </div>
+<div class="field">
+<%= f.hidden_field :user_id, :value => current_user.id %>
+</div>
 
-  <div class="field">
-    <%= f.hidden_field :game_id, :value => @game.id.to_i %>
-  </div>
+<div class="field">
+<%= f.hidden_field :game_id, :value => @game.id.to_i %>
+</div>
 
-  <div class="actions">
-    <%= f.submit %>
+<div class="form-group">
+  <div class="col-lg-10 col-lg-offset-2">
+    <button type="submit" class="btn btn-primary">Submit</button>
   </div>
+</div>
+
+</div>
 <% end %>

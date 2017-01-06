@@ -48,10 +48,17 @@
 
 
 <h4>Comments <span class="badge"><%= @comments.count %></span></h4>
+<div class="progress">
+  <div class="progress-bar progress-bar-success" style="width: 35%"></div>
+  <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
+  <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
+</div>
+  <% if logged_in? %>
   <a href="#" class="btn btn-success" id="add-comment">Add Comment</a>
   <div class="comments-partial">
     <%= render partial: 'comments/form', locals: { game: @game, comment: @comment } %>
   </div>
+  <% end %>
   <% @comments.each do |comment| %>
   <p class="text-primary">
     <%= comment.title %> | <%= link_to comment.user.username, user_path(comment.user) %>
