@@ -1,0 +1,7 @@
+<%= @game.name %></h1><br>
+<%= @game.description %><br>
+<% @game.mechanics.each do |m|%>
+   <%= m.name%>
+<%end%>
+
+<img src=" <%= @game.picture %> ">
