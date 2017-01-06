@@ -5,17 +5,27 @@ class GamesController < ApplicationController
   end
 
   def new
+    @mechanics = Mechanic.all
     @game = Game.new
   end
 
   def create
     @game = Game.new(game_params)
-
-    @game.save
+    @game.creator_id = current_user.id
+    if @game.save
+     flash[:success] = "Game Successfully Created"
+     redirect_to root_path
+    else
+     redirect_to new_game_path
+    end
+    game_params[:mechanic_ids].each do |m|
+      GameMechanic.create(game_id: @game.id, mechanic_id: m)
+    end
   end
 
   def edit
     @game = Game.find(params[:id])
+    @mechanics = Mechanic.all
   end
 
   def show
@@ -32,6 +42,11 @@ class GamesController < ApplicationController
       flash[:notice] = "Something went wrong!"
       redirect_to edit_game_path(@game)
     end
+    GameMechanic.where(game_id: @game.id).destroy_all
+
+    game_params[:mechanic_ids].each do |m|
+      GameMechanic.create(game_id: @game.id, mechanic_id: m)
+    end
   end
 
   def destroy
@@ -40,6 +55,12 @@ class GamesController < ApplicationController
     flash[:notice] = "Game #{@game.name} deleted!"
 
     redirect_to root_path
+  end
+
+  private
+
+  def game_params
+    params.require(:game).permit(:name, :description, :picture, mechanic_ids:[])
   end
 
 end
