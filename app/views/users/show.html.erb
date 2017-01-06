@@ -1,29 +1,38 @@
-<% if @user == current_user %>
-  <p id="user-actions">
-    <%= link_to 'Edit Account', edit_user_path(@user) %> |
-    <%= link_to 'Delete Account', user_path(@user), method: :delete, data: {confirm: "Really delete your account?"} %>
-  </p>
-<% end %>
-
 <div class="row">
   <div class="col-sm-4">
     <img src="<%= @user.picture %>" class="img-rounded game-page" width="300">
       <div class="panel-heading">
         <p class="text-primary text-center">
-          <%= mail_to @user.email,@user.email %>
+          <%= mail_to @user.email,@user.email %><br />
+          <% if logged_in? %>
+            <% if @user == current_user %>
+                <%= link_to 'Edit Account', edit_user_path(@user) %> |
+                <%= link_to 'Delete Account', user_path(@user), method: :delete, data: {confirm: "Really delete your account?"} %>
+            <% else %>
+              <% if current_user.following?(@user) %>
+                <%= form_for(current_user.active_followships.find_by(followed_id: @user.id), html: { method: :delete }) do |f| %>
+                  <%= f.submit "Unfollow", class: "btn" %>
+                <% end %>
+              <% else %>
+                <%= form_for(current_user.active_followships.build) do |f| %>
+                  <div><%= hidden_field :followed_id, @user.id %></div>
+                  <%= f.submit "Follow", class: "btn btn-primary" %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
         </p>
       </div>
   </div>
   <div class="col-sm-8">
     <h1><%= @user.username.upcase %></h1><br>
-
+    <% if logged_in? && current_user.following?(@user) %>
     <h4>Library <span class="badge"><%= @libraries.count %> games</span></h4>
     <div class="progress">
       <div class="progress-bar progress-bar-success" style="width: 35%"></div>
       <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
       <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
     </div>
-      <% if logged_in? %>
       <ul>
         <% @libraries.each do |lib| %>
           <li><p class="text-primary"><%= lib.game.name %></p></li>

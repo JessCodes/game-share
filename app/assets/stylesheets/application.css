@@ -21,24 +21,3 @@ h1 {
  body {
    padding-top: 10px;
  }
-
-input {
-  margin-bottom: 5px;
-}
-
-.game-page {
-  float: left;
-  margin-left: 10%;
-}
-
-.comments {
-  clear: both;
-  text-align: left;
-}
-
-.row-centered {
-    text-align:center;
-}
-.col-centered {
-    text-align:center;
-}
