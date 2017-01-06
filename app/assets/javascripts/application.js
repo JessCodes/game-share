@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function () {
+    $(".dropdown").hover(function () {
+        $(this).addClass("open");
+    }, function () {
+        $(this).removeClass("open");
+    });
+});

@@ -29,16 +29,16 @@ form {
    text-align: center;
  }
 
-#home-link {
-  float: left;
-  margin-left: 15px;
-}
-
-#user-links {
-  float: right;
-  margin-right: 15px;
-}
-
 input {
   margin-bottom: 5px;
+}
+
+.game-page {
+  float: left;
+  margin-left: 10%;
+}
+
+.comments {
+  clear: both;
+  text-align: left;
 }

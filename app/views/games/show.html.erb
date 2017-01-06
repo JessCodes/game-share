@@ -1,11 +1,19 @@
-<%= @game.name %></h1><br>
+<h1><%= @game.name %></h1><br>
 <%= @game.description %><br>
 <% @game.mechanics.each do |m|%>
    <%= m.name%>
 <%end%>
 
-<img src=" <%= @game.picture %> ">
+<img src="<%= @game.picture%>" class="img-rounded game-page" width="350">
 
 <div class="comments">
-  <%= @game.
+  <h4>Comments</h4>
+  <% @comments.each do |comment| %>
+  <p class="comment-title">
+    <%= comment.title %> | <%= link_to comment.user.username, user_path(comment.user) %>
+  </p>
+  <p class="comment-body">
+    <%= comment.body %>
+  </p>
+  <% end %>
 </div>
