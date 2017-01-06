@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     resources :games do
       resources :comments, only: [:new, :create, :destroy]
     end
-
     get 'login' => 'sessions#new'
     get 'logout' => 'sessions#destroy'
+
+    resources :followships, only: [:create, :destroy]
 end

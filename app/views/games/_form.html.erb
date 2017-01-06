@@ -1,0 +1,41 @@
+<center>
+<%= form_for(game) do |f| %>
+  <% if game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+      <ul>
+      <% game.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name, placeholder: 'Name' %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :description, placeholder: 'description' %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :picture, placeholder: 'link to picture' %>
+  </div>
+
+  <div class="field">
+  <%= f.label "Mechanics in Game:" %><br />
+  <%= f.collection_check_boxes :mechanic_ids, @mechanics.all, :id, :name do |m| %>
+    <div class="collection-check-box">
+      <%= m.check_box %>
+      <%= m.label %>
+    </div>
+  <% end %>
+  </div
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</center>

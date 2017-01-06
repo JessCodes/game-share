@@ -8,4 +8,6 @@ class Game < ApplicationRecord
   has_many :mechanics, through: :game_mechanics
 
   has_many :votes, as: :voteable
+  has_many :comments
+
 end
