@@ -26,7 +26,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
 
     if @game.update(game_params)
-      flash[:notice] = "Updated Game`"
+      flash[:notice] = "Updated Game"
       redirect_to game_path(@game)
     else
       flash[:notice] = "Something went wrong!"

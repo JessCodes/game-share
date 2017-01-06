@@ -7,4 +7,6 @@ class Game < ApplicationRecord
   #Game has many game mechanics
   has_many :game_mechanics
   has_many :mechanics, through: :game_mechanics
+
+  has_many :comments
 end
