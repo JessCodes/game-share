@@ -1,6 +1,8 @@
 class GamesController < ApplicationController
 
-  def index
+  # No login checks and No authorization being used here, please implement.
+
+  def index  # This isn't needed per the requirements.
     @games = Game.all
   end
 
@@ -10,7 +12,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-
+    # Need to consider the error case here if it doesn't save.
     @game.save
   end
 
@@ -34,6 +36,7 @@ class GamesController < ApplicationController
     end
   end
 
+  # Was this a part of the requirements?
   def destroy
     @game = Game.find(params[:id])
     @game.destroy
