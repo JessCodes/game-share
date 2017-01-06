@@ -1,12 +1,8 @@
 <h1>Gamesta Paradise</h1>
-<h3>Because games were meant to be played with friends</h3>
+<h3>Games are better with friends</h3>
 
-<div class="container">
-  <div class="row">
-    <% @games.each do |game| %>
-      <div class="col-sm-4">
-        <%= render :partial => "games/game", :collection => @games, :as => :game %>
-      </div>
-    <% end %>
-  </div>
+<%= link_to 'See All Games', games_path, class: "btn btn-success" %>
+
+<div class="flex-container">
+    <%= render :partial => "games/game", :collection => @games %>
 </div>
