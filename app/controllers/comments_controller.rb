@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
 
   def new
-    @comment = Comment.new
+    @game = Game.find(params[:id])
+    @comment = Comment.new(game: @game)
   end
 
   def create
@@ -17,7 +18,7 @@ class CommentsController < ApplicationController
 
     redirect_to game_comment_path
   end
-  
+
   private
 
   def comment_params

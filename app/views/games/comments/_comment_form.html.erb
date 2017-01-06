@@ -1,5 +1,5 @@
 <center>
-<%= form_for(comment) do |f| %>
+<%= form_for[game, comment] do |f| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -32,3 +32,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</center>

@@ -1,10 +1,12 @@
 class GamesController < ApplicationController
 
   def index
+    super
     @games = Game.all
   end
 
   def new
+    super
     @game = Game.new
   end
 
@@ -15,10 +17,12 @@ class GamesController < ApplicationController
   end
 
   def edit
+    super
     @game = Game.find(params[:id])
   end
 
   def show
+    super
     @game = Game.find(params[:id])
     @comments = @game.comments
   end

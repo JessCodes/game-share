@@ -1,18 +1,60 @@
-<h1><%= @game.name %></h1><br>
-<%= @game.description %><br>
-<% @game.mechanics.each do |m|%>
-   <%= m.name%>
-<%end%>
+<div class="row">
+  <div class="col-sm-4">
+    <img src="<%= @game.picture %>" class="img-rounded game-page" width="350">
+  </div>
+  <div class="col-sm-8">
+    <h1><%= @game.name.upcase %></h1><br>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <p class="text-primary">
+          Mechanics
+        </p>
+        <% @game.mechanics.each do |m|%>
+          <span class="label label-info"><%= m.name%></span>
+        <%end%>
+      </div>
+        <div class="panel-body">
+            <p class="text-primary">
+              Description
+            </p>
+            <p class="text-muted">
+              <%= @game.description %>
+            </p>
+            <p>
+            </p>
+        </div>
+        </div>
+        <div class="panel-footer" align="center">
+          <a href="#">
+            <span class="glyphicon glyphicon-arrow-up"></span>
+          </a>
+          <a href="#">
+            <span class="glyphicon glyphicon-arrow-down"></span>
+          </a>
+          <a href="#">
+            <span class="glyphicon glyphicon-plus"></span>
+          </a>
+          <a href="#">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </a>
+          <a href="#">
+            <span class="glyphicon glyphicon-check"></span>
+          </a>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
 
-<img src="<%= @game.picture%>" class="img-rounded game-page" width="350">
 
 <div class="comments">
-  <h4>Comments</h4>
+  <h4>Comments <span class="badge"><%= @comments.count %></span></h4>
+  <%= link_to 'Add Comment', new_game_comment_url(@game), class: "btn btn-success" %>
   <% @comments.each do |comment| %>
-  <p class="comment-title">
+  <p class="text-primary">
     <%= comment.title %> | <%= link_to comment.user.username, user_path(comment.user) %>
   </p>
-  <p class="comment-body">
+  <p class="text-muted">
     <%= comment.body %>
   </p>
   <% end %>
