@@ -1,10 +1,5 @@
 class UsersController < ApplicationController
 
-  def index
-    super
-    @users = User.all
-  end
-
   def new
     super
     @user = User.new
