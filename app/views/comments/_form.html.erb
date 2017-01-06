@@ -1,5 +1,4 @@
-<center>
-<%= form_for(comment) do |f| %>
+<%= form_for [ @game, @comment ] do |f| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -17,15 +16,15 @@
   </div>
 
   <div class="field">
-    <%= f.text_area_tag :body, placeholder: 'comment here' %>
+    <%= f.text_area :body, placeholder: 'comment here' %>
   </div>
 
   <div class="field">
-    <%= f.hidden_field_tag :user_id, current_user.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
 
   <div class="field">
-    <%= f.hidden_field_tag :game_id, game.id %>
+    <%= f.hidden_field :game_id, :value => @game.id.to_i %>
   </div>
 
   <div class="actions">

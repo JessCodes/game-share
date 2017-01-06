@@ -16,9 +16,18 @@
 //= require_tree .
 
 $(document).ready(function () {
-    $(".dropdown").hover(function () {
-        $(this).addClass("open");
-    }, function () {
-        $(this).removeClass("open");
-    });
+  $('.comments-partial').hide();
+
+
+  $(".dropdown").hover(function () {
+      $(this).addClass("open");
+  }, function () {
+      $(this).removeClass("open");
+  });
+
+  $('#add-comment').on('click', function(event) {
+    $('.comments-partial').slideDown('5000');
+  })
+
+
 });

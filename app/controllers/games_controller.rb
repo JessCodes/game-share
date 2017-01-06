@@ -25,6 +25,9 @@ class GamesController < ApplicationController
     super
     @game = Game.find(params[:id])
     @comments = @game.comments
+    
+    @comment = Comment.new
+    @comment.game_id = @game.id
   end
 
   def update
