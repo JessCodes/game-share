@@ -1,8 +1,12 @@
 <h1>Gamesta Paradise</h1>
 <h3>Games are better with friends</h3>
-  <center>
-    <%= link_to 'See All Games', games_path, class: "btn btn-success" %>
-  </center>
+
+  <br>
+    <center>
+      <%= link_to 'See All Games', games_path, class: "btn btn-success" %>
+    </center>
+  <br>
+  
 <div class="flex-container">
     <%= render :partial => "games/game", :collection => @games %>
 </div>
