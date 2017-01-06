@@ -7,4 +7,7 @@ class Game < ApplicationRecord
   #Game has many game mechanics
   has_many :game_mechanics
   has_many :mechanics, through: :game_mechanics
+
+  #Can upvote and downvote games 
+  has_many :votes, as: :voteable
 end
