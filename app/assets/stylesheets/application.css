@@ -14,6 +14,9 @@
  *= require_self
  */
 
+/* PLEASE DO NOT ADD CODE TO THIS FILE.  IT's a manifest file.
+Create other files and let the asset pipline do it's thing.*/
+
 h1 {
   text-align: center;
 }

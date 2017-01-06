@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  # Many of these routes weren't asked for.
+  # Please don't make routes for requirements that don't exist.
+  # Remove unnecessary ones.
+
   def index
     @users = User.all
   end
