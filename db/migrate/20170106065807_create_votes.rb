@@ -1,5 +1,5 @@
 class CreateVotes < ActiveRecord::Migration[5.0]
-#Votes is polymorphic - comments and games are voteable 
+#Votes is polymorphic - comments and games are voteable
   def change
     create_table :votes do |t|
 
