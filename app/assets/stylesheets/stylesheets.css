@@ -15,3 +15,7 @@ h1, h3 {
 .homepage-panel {
   width: 350px;
 }
+
+.partial-icons {
+  float: right;
+}
