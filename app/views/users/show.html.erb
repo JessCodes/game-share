@@ -6,17 +6,27 @@
           <%= mail_to @user.email,@user.email %><br />
           <% if logged_in? %>
             <% if @user == current_user %>
-                <%= link_to 'Edit Account', edit_user_path(@user) %> |
-                <%= link_to 'Delete Account', user_path(@user), method: :delete, data: {confirm: "Really delete your account?"} %>
+
+              <div class="btn-group">
+                <a href="#" class="btn btn-success">User Options</a>
+                <a href="#" class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Edit Account', edit_user_path(@user) %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to 'Delete Account', user_path(@user), method: :delete, data: {confirm: "Really delete your account?"} %></li>
+                </ul>
+              </div>
+
+
             <% else %>
               <% if current_user.following?(@user) %>
                 <%= form_for(current_user.active_followships.find_by(followed_id: @user.id), html: { method: :delete }) do |f| %>
-                  <%= f.submit "Unfollow", class: "btn" %>
+                  <%= f.submit "Unfollow", class: "btn btn-default", data: {confirm: "Do you really want to unfollow #{@user.username}?"} %>
                 <% end %>
               <% else %>
                 <%= form_for(current_user.active_followships.build) do |f| %>
-                  <div><%= hidden_field :followed_id, @user.id %></div>
-                  <%= f.submit "Follow", class: "btn btn-primary" %>
+                  <div><%= hidden_field_tag :followed_id, @user.id %></div>
+                  <%= f.submit "Follow", class: "btn btn-success" %>
                 <% end %>
               <% end %>
             <% end %>
@@ -26,7 +36,7 @@
   </div>
   <div class="col-sm-8">
     <h1><%= @user.username.upcase %></h1><br>
-    <% if logged_in? && current_user.following?(@user) %>
+    <% if logged_in? && (current_user.following?(@user) || current_user == @user) %>
     <h4>Library <span class="badge"><%= @libraries.count %> games</span></h4>
     <div class="progress">
       <div class="progress-bar progress-bar-success" style="width: 35%"></div>

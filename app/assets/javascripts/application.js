@@ -19,7 +19,7 @@ $(document).ready(function () {
   $('.comments-partial').hide();
 
 
-  $(".dropdown").hover(function () {
+  $(".dropdown, .btn-group").hover(function () {
       $(this).addClass("open");
   }, function () {
       $(this).removeClass("open");
