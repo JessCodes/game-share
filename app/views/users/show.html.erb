@@ -1,9 +1,45 @@
-<h1><%= @user.username %></h1>
-<%= @user.email %>
-
 <% if @user == current_user %>
   <p id="user-actions">
-    <%= link_to 'Edit Account', edit_user_path(@user) %> | 
+    <%= link_to 'Edit Account', edit_user_path(@user) %> |
     <%= link_to 'Delete Account', user_path(@user), method: :delete, data: {confirm: "Really delete your account?"} %>
   </p>
 <% end %>
+
+<div class="row">
+  <div class="col-sm-4">
+    <img src="<%= @user.picture %>" class="img-rounded game-page" width="300">
+      <div class="panel-heading">
+        <p class="text-primary">
+          <%= mail_to @user.email,@user.email %>
+        </p>
+      </div>
+  </div>
+  <div class="col-sm-8">
+    <h1><%= @user.username.upcase %></h1><br>
+
+    <h4>Library <span class="badge"><%= @libraries.count %> games</span></h4>
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" style="width: 35%"></div>
+      <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
+      <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
+    </div>
+      <% if logged_in? %>
+      <ul>
+        <% @libraries.each do |lib| %>
+          <li><p class="text-primary"><%= lib.game.name %></p></li>
+        <% end %>
+        </ul>
+      <h4>Created Games <span class="badge"><%= @created_games.count %> games</span></h4>
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" style="width: 35%"></div>
+        <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
+        <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
+      </div>
+        <ul>
+          <% @created_games.each do |game| %>
+            <li><p class="text-primary"><%= game.name %></p></li>
+          <% end %>
+          </ul>
+        <% end %>
+  </div>
+</div>

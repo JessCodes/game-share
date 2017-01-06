@@ -29,6 +29,8 @@ class UsersController < ApplicationController
   def show
     super
     @user = User.find(params[:id])
+    @libraries = @user.libraries
+    @created_games = Game.where(creator: @user)
   end
 
   def update
