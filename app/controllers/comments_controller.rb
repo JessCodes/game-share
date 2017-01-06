@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-
+    @comment.game_id = params[:id].to_i
     @comment.save
   end
 
@@ -21,6 +21,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:title, :body, :user_id, :game_id)
+    params.require(:comment).permit(:title, :body, :user_id)
   end
 end
