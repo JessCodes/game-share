@@ -3,9 +3,10 @@ class CreateGames < ActiveRecord::Migration[5.0]
     create_table :games do |t|
       t.string :name,         null: false
       t.string :picture,      null: false
+      t.text :description
       t.integer :creator_id
 
-      t.timestamps            null: false
+      t.timestamps
     end
   end
 end

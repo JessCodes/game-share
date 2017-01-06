@@ -32,11 +32,12 @@ ActiveRecord::Schema.define(version: 20170106003728) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "picture",    null: false
+    t.string   "name",        null: false
+    t.string   "picture",     null: false
+    t.text     "description"
     t.integer  "creator_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "libraries", force: :cascade do |t|
