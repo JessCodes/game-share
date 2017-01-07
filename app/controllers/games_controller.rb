@@ -73,26 +73,7 @@ class GamesController < ApplicationController
     @vote.save
     
     redirect_to game_path(@game)
-
-
   end
-
-  #     #else
-  #     if @game.vote.value = 1
-  #       #reset vote
-  #       @game.vote.destroy
-  #       #else set it to 1
-  #     else
-  #       @game.vote.value = 1
-  #     end
-  #   #else make a new vote with value 1
-  # else
-  #   v = @game.votes.new(value: 1)
-  #   v.user_id = current_user.id
-  #   v.save
-  #   end
-  #   redirect_to game_path(@vote.game)
-  # end
 
   private
 
