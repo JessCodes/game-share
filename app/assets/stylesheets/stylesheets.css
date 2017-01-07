@@ -1,0 +1,21 @@
+h1, h3 {
+  text-align: center;
+}
+
+ body {
+   padding-top: 10px;
+ }
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.homepage-panel {
+  width: 350px;
+}
+
+.partial-icons {
+  float: right;
+}

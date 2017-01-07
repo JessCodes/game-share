@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     root 'welcome#index'
+    
     resources :users
 
     resources :welcome, only: [:index]
@@ -20,8 +21,11 @@ Rails.application.routes.draw do
       
     end
 
+    resources :mechanics, only: [:show]
+    
+    resources :followships, only: [:create, :destroy]
+  
     get 'login' => 'sessions#new'
     get 'logout' => 'sessions#destroy'
 
-    resources :followships, only: [:create, :destroy]
 end

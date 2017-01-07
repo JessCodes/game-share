@@ -1,51 +1,12 @@
 <h1>Gamesta Paradise</h1>
-<h3>Because games were meant to be played with friends</h3>
+<h3>Games are better with friends</h3>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4"><%= render 'games/game' %> </div>
-    <div class="col-sm-4"><%= render partial: 'games/game' %></div>
-    <div class="col-sm-4"><%= render partial: 'games/game' %></div>
-    <div class="col-sm-4"><%= render partial: 'games/game' %></div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4">.col-sm-4</div>
-    <div class="col-sm-4">.col-sm-4</div>
-    <div class="col-sm-4">.col-sm-4</div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4">.col-sm-4</div>
-    <div class="col-sm-4">.col-sm-4</div>
-    <div class="col-sm-4">.col-sm-4</div>
-  </div>
-  <div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  </div>
-  <div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  </div>
-  <div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  </div>
-  <div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  </div>
-  <div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  </div>
-  <div class="row">
-  <div class="col-sm-4">keep empty</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">keep empty</div>
-  </div>
+  <br>
+    <center>
+      <%= link_to 'See All Games', games_path, class: "btn btn-success" %>
+    </center>
+  <br>
+  
+<div class="flex-container">
+    <%= render :partial => "games/game", :collection => @games %>
 </div>
