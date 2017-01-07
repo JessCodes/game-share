@@ -25,16 +25,12 @@
         </div>
         </div>
         <div class="panel-footer" align="center">
-
-            <%= @game.vote_total %>
-            <%= button_to "^", vote_game_path(@game), params: {value: 1} %>
-            <%= button_to "v", vote_game_path(@game), params: {value: -1}%>
-
-            <!-- <span class="glyphicon glyphicon-arrow-up"></span> -->
-
-          <!-- <a href="#">
+          <a href="#">
+            <span class="glyphicon glyphicon-arrow-up"></span>
+          </a>
+          <a href="#">
             <span class="glyphicon glyphicon-arrow-down"></span>
-          </a> -->
+          </a>
           <a href="#">
             <span class="glyphicon glyphicon-plus"></span>
           </a>

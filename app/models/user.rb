@@ -8,7 +8,6 @@ class User < ApplicationRecord
   has_many :games, through: :libraries
 
   has_many :comments
-  has_many :votes
 
   has_many :active_followships, class_name:  "Followship",
                                   foreign_key: "follower_id",
@@ -22,9 +21,6 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_followships
 
 
-
-  #Only authorized user can edit, update, or delete a comment
-
   def follow(other_user)
     following << other_user
   end
@@ -36,13 +32,4 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
-
-  def game_votes
-    votes.where(voteable_type: "Game")
-  end
-
-  def comment_votes
-    votes.where(voteable_type: "Comment")
-  end
-
 end
