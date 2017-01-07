@@ -34,9 +34,13 @@
           <a href="#">
             <span class="glyphicon glyphicon-plus"></span>
           </a>
-          <a href="#">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>
+          <% if logged_in? %>
+            <% if @game.creator == current_user %>
+              <a href="/games/<%=@game.id%>/edit">
+                <span class="glyphicon glyphicon-pencil"></span>
+              </a>
+              <% end %>
+            <% end %>
           <a href="#">
             <span class="glyphicon glyphicon-check"></span>
           </a>
@@ -45,7 +49,6 @@
   </div>
   </div>
 </div>
-
 
 <h4>Comments <span class="badge"><%= @comments.count %></span></h4>
 <div class="progress">
