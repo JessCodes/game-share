@@ -10,4 +10,8 @@ class Game < ApplicationRecord
   has_many :votes, as: :voteable
   has_many :comments
 
+  def vote_total
+    votes.sum("value")
+  end
+
 end
