@@ -1,9 +1,10 @@
 class CommentsController < ApplicationController
+#  before_action :authenticate_user!, only:[:upvote, :new]
 
-  # def new
-  #   @game = Game.find(params[:id])
-  #   @comment = Comment.new(game_id: @game.id)
-  # end
+  def new
+    @game = Game.find(params[:id])
+    @comment = Comment.new(game_id: @game.id)
+  end
 
   def create
     @comment = Comment.new(comment_params)

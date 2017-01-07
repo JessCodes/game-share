@@ -4,6 +4,7 @@ Game.delete_all
 Library.delete_all
 Mechanic.delete_all
 GameMechanic.delete_all
+Vote.delete_all 
 
 #Adds sample users
 users = User.create([

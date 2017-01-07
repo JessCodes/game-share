@@ -21,9 +21,9 @@ Frida | Jess | Jen | Kat
 ![]()
 
 ###### Wireframes (complete)
-![check with games#edit](https://github.com/JessCodes/game-share/blob/development/readme_assets/gamesta-wireframes/games#edit)
+![check with games#edit](https://github.com/JessCodes/game-share/blob/development/readme_assets/gamesta-wireframes/games:edit.png)
 
-![check with games\/edit](https://github.com/JessCodes/game-share/blob/development/readme_assets/gamesta-wireframes/"games\/edit)
+![check with games\/edit](https://github.com/JessCodes/game-share/blob/development/readme_assets/gamesta-wireframes/home.png)
 ![]()
 ![]()
 

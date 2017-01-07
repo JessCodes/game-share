@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  #before_action :authenticate_user!, only:[:upvote]
 
   def index
     super
@@ -34,7 +35,7 @@ class GamesController < ApplicationController
     super
     @game = Game.find(params[:id])
     @comments = @game.comments
-    
+
     @comment = Comment.new
     @comment.game_id = @game.id
   end
@@ -62,6 +63,16 @@ class GamesController < ApplicationController
     flash[:notice] = "Game #{@game.name} deleted!"
 
     redirect_to root_path
+  end
+
+  def vote
+    @game = Game.find(params[:id])
+
+    @vote = Vote.find_or_create_by(voteable_type: "Game", voteable_id: @game.id, user_id: current_user.id)
+    @vote.value = params[:value]
+    @vote.save
+    
+    redirect_to game_path(@game)
   end
 
   private
