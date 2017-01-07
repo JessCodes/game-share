@@ -9,22 +9,13 @@ Rails.application.routes.draw do
     resources :sessions, only: [ :new, :create, :destroy ]
 
     resources :games do
-      member do
-        post 'vote'
-      end
-
-      resources :comments, only: [:new, :create, :destroy] do
-        member do
-          post 'vote'
-        end
-      end
-      
+      resources :comments, only: [:new, :create, :destroy]
     end
 
     resources :mechanics, only: [:show]
     
     resources :followships, only: [:create, :destroy]
-  
+
     get 'login' => 'sessions#new'
     get 'logout' => 'sessions#destroy'
 
